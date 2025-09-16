@@ -1,0 +1,48 @@
+.dashboard-page {
+  padding: 0 24px;
+}
+
+.tags-bar .tag-chip {
+  padding: 6px 10px;
+  border-radius: 6px;
+  background: #e5e7eb;
+  border: none;
+  cursor: pointer;
+  margin-right: 6px;
+  margin-bottom: 6px;
+}
+
+.tags-bar .tag-chip.active {
+  background: #3b82f6;
+  color: white;
+}
+
+.tags-bar .tag-chip.clear {
+  background: #ef4444; /* red for clear */
+  color: white;
+}
+
+.sidebar {
+  background: #fff;
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.activity-item {
+  display: flex;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.activity-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #eef2ff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #4338ca;
+  margin-right: 8px;
+}

@@ -1,0 +1,429 @@
+/* client/src/styles/global.css */
+
+/* client/src/styles/global.css */
+
+/* Theme tokens (dark by default) */
+:root {
+  --bg: #111827;           /* app background (dark) */
+  --text: #e5e7eb;         /* default text on dark bg */
+  --card: #ffffff;         /* white panels */
+  --cardText: #111827;     /* dark text on white panels */
+  --primary: #3b82f6;
+  --secondary: #6b7280;
+  --shadow: 0 2px 6px rgba(0,0,0,.06);
+  --chip-bg: #e0f2fe;
+  --chip-fg: #0369a1;
+  --muted: #6b7280;
+  --link: #2563eb;         /* accessible link on white */
+  --linkHover: #1d4ed8;
+}
+
+[data-theme="light"] {
+  --bg: #ffffff;
+  --text: #111827;
+  --card: #ffffff;
+  --cardText: #111827;
+  --primary: #1e3a8a;
+  --secondary: #374151;
+  --shadow: 0 2px 6px rgba(0,0,0,.08);
+  --chip-bg: #e6f0ff;
+  --chip-fg: #1e3a8a;
+  --muted: #6b7280;
+  --link: #1e40af;
+  --linkHover: #3b82f6;
+}
+
+/* App base */
+.app {
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+/* Links (work on both white and dark) */
+a { color: var(--link); text-decoration: none; }
+a:hover { color: var(--linkHover); }
+
+/* White panels: cards, right rail, modal, search cards */
+.card,
+.sidebar,
+.dashboard-activity,
+.modal,
+.search-card {
+  background: var(--card);
+  color: var(--cardText);
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: var(--shadow);
+}
+
+/* Force readable text for all children inside white panels */
+.card *, .sidebar *, .dashboard-activity *, .modal *, .search-card * { color: inherit; }
+
+/* Headings and text inside white panels */
+.card h1, .card h2, .card h3, .card h4,
+.sidebar h1, .sidebar h2, .sidebar h3, .sidebar h4,
+.dashboard-activity h1, .dashboard-activity h2, .dashboard-activity h3, .dashboard-activity h4,
+.modal h1, .modal h2, .modal h3,
+.search-card h1, .search-card h2, .search-card h3 {
+  color: #111827;
+  margin: 0 0 6px;
+}
+.card p, .sidebar p, .dashboard-activity p, .modal p, .search-card p { color: #374151; margin: 0; }
+.card small, .sidebar small, .dashboard-activity small, .modal small, .search-card small { color: #6b7280; }
+
+/* Tag chips */
+.tag-chip {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid #d8e1f8;
+  background: var(--chip-bg);
+  color: var(--chip-fg);
+  font-size: 0.85rem;
+  margin: 2px;
+}
+.tag-chip.active {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
+/* Red Clear chip */
+.tag-chip.clear {
+  background: #ef4444;
+  border-color: #ef4444;
+  color: #ffffff;
+}
+.tag-chip:focus,
+.tag-chip:focus-visible,
+.refresh-btn:focus-visible,
+.btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(59,130,246,.35); /* accessible focus ring without layout shift */
+}
+
+/* History modal overlay */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  padding: 12px;
+}
+.modal {
+  width: 90%;
+  max-width: 640px;
+  max-height: 75vh;
+  overflow-y: auto;
+}
+
+/* Dashboard layout */
+.dashboard { padding: 30px; }
+
+/* White dashboard content area to avoid dark background behind docs */
+.dashboard-bg {
+  background: #ffffff;
+  color: #111827;
+  padding: 0 24px 40px;
+}
+
+/* Two-column content layout */
+.layout,
+.dashboard-layout {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 20px;
+}
+
+/* Docs grid */
+.grid,
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+/* Reserve height for the tag bar to prevent vertical jumping when Clear appears */
+.tags-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  min-height: 44px; /* prevents page "jump down" */
+  align-items: center;
+}
+
+/* Right rail header */
+.sidebar-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+.sidebar-title { font-size: 1.05rem; font-weight: 600; margin: 0; }
+
+/* Activity entries */
+.activity-item { display: flex; align-items: center; padding: 8px 0; border-bottom: 1px solid #eee; }
+.activity-icon {
+  width: 24px; height: 24px; border-radius: 50%;
+  background: #eef2ff; color: #4338ca;
+  display: inline-flex; align-items: center; justify-content: center;
+  margin-right: 8px;
+}
+
+/* Empty/error text */
+.empty { color: var(--muted); font-size: 0.95rem; padding: 8px 0; }
+.error { color: #f87171; }
+
+/* Inputs (QA/Search/Add) — readable on dark canvas */
+input[type="text"], textarea, select, .search-input, .qa-input {
+  background: #fff;
+  color: #111827;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+}
+input::placeholder, .search-input::placeholder, .qa-input::placeholder { color: #9ca3af; }
+
+/* Buttons */
+.btn, .refresh-btn {
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.btn.secondary { background: var(--secondary); }
+
+/* Minor responsive tweak */
+@media (max-width: 1024px) {
+  .layout, .dashboard-layout { grid-template-columns: 1fr; }
+}
+/* Add page: make the whole content area white and readable */
+.page-fill-white {
+  background: #ffffff;
+  color: #111827;
+  width: 100%;
+  min-height: 100vh;
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+/* Center the form nicely */
+.container-narrow {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* A tidy card for forms (if you’re not already using .card) */
+.form-card {
+  background: #ffffff;
+  color: #111827;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  padding: 24px;
+}
+
+/* Inputs and button for forms */
+.form-group { margin-bottom: 16px; }
+.form-label { display: block; font-weight: 600; margin-bottom: 6px; color: #111827; }
+
+.input, .textarea {
+  width: 100%;
+  background: #fff;
+  color: #111827;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  padding: 12px 14px;
+  font-size: 1rem;
+}
+.textarea { min-height: 180px; resize: vertical; }
+
+.btn-dark {
+  background: #1f2937;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 12px 18px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.btn-dark:hover { filter: brightness(1.05); }
+
+/* Dashboard Page */
+.dashboard-page {
+  background: #f9fafb;
+  min-height: 100vh;
+  padding: 16px 0;
+  font-family: "Inter", sans-serif;
+  color: #111827;
+}
+
+.dashboard-page .title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+/* Tags */
+.tags-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.tag-chip {
+  padding: 6px 12px;
+  border-radius: 9999px;
+  font-size: 0.85rem;
+  background: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tag-chip:hover {
+  background: #e0e7ff;
+  border-color: #c7d2fe;
+}
+
+.tag-chip.active {
+  background: #4338ca;
+  color: #fff;
+  border-color: #3730a3;
+}
+
+/* Layout */
+.layout {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 20px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+/* Sidebar */
+.sidebar {
+  background: #fff;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 20px;
+  height: fit-content;
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.sidebar-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.refresh-btn {
+  font-size: 0.8rem;
+  padding: 4px 10px;
+  border: 1px solid #d1d5db;
+  background: #f9fafb;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.refresh-btn:hover {
+  background: #e5e7eb;
+}
+
+/* Activity */
+.activity-item {
+  display: flex;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.activity-item:last-child {
+  border-bottom: none;
+}
+
+.activity-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #eef2ff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #4338ca;
+  font-weight: bold;
+  margin-right: 8px;
+}
+
+.activity-text-wrap {
+  flex: 1;
+}
+
+.activity-title {
+  color: #2563eb;
+  font-weight: 600;
+}
+
+.activity-item small {
+  display: block;
+  font-size: 0.75rem;
+  color: #6b7280;
+  margin-top: 2px;
+}
+
+/* States */
+.error {
+  color: #dc2626;
+  margin: 8px 0;
+}
+
+.empty {
+  color: #6b7280;
+  font-style: italic;
+  padding: 12px 0;
+}
+/* Clear Button (special tag-chip) */
+.tag-chip.clear-btn {
+  background: #ef4444; /* red-500 */
+  color: #fff;
+  border-color: #dc2626; /* red-600 */
+}
+
+.tag-chip.clear-btn:hover {
+  background: #dc2626;
+  border-color: #b91c1c;
+}
+
+/* Refresh Button */
+.refresh-btn {
+  font-size: 0.8rem;
+  padding: 6px 12px;
+  border: 1px solid #4338ca;
+  background: #fff;
+  color: #4338ca;
+  font-weight: 500;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.refresh-btn:hover {
+  background: #4338ca;
+  color: #fff;
+}

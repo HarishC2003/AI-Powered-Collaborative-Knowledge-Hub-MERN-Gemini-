@@ -1,0 +1,50 @@
+.search-container {
+  padding: 30px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.search-title {
+  font-size: 1.8rem;
+  color: #111827;
+  margin-bottom: 12px;
+}
+
+.search-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.search-input {
+  flex: 1;
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #cbd5e1;
+}
+
+.search-btn {
+  padding: 12px 18px;
+  border-radius: 6px;
+  border: none;
+  background: #3b82f6;
+  color: white;
+}
+
+.search-card {
+  margin: 12px 0;
+  padding: 14px;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+}
+
+.search-card h4 {
+  margin: 0 0 6px;
+  color: #111827;
+}
+
+.search-card p {
+  margin: 0;
+  color: #555;
+}

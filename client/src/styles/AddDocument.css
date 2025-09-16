@@ -1,0 +1,119 @@
+/* Page wrapper */
+.adddoc-page {
+  background: #f9fafb; /* page background */
+  min-height: calc(100vh - 60px); /* adjust if navbar height is 60px */
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Container to center content */
+.adddoc-container {
+  width: 100%;
+  max-width: 800px;
+}
+
+/* Card style */
+.adddoc-card {
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  border: 1px solid #e5e7eb;
+}
+
+/* Form layout */
+.adddoc-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* Headings */
+.adddoc-header {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #111827;
+  margin: 0 0 6px;
+}
+
+.adddoc-subheader {
+  font-size: 0.95rem;
+  color: #6b7280;
+  margin: 0;
+}
+
+/* Form group */
+.adddoc-group {
+  display: flex;
+  flex-direction: column;
+  margin-top: 6px;
+}
+
+.adddoc-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 6px;
+}
+
+.adddoc-input,
+.adddoc-textarea {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  outline: none;
+  color: #111827;
+  background: #ffffff;
+  box-sizing: border-box;
+}
+
+.adddoc-textarea {
+  min-height: 180px;
+  resize: vertical;
+}
+
+/* Buttons */
+.adddoc-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.adddoc-button {
+  padding: 12px 18px;
+  font-weight: 600;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.adddoc-button.cancel {
+  background: #6b7280;
+  color: #fff;
+}
+
+.adddoc-button.cancel:hover:not(:disabled) {
+  background: #4b5563;
+}
+
+.adddoc-button.save {
+  background: #3b82f6;
+  color: #fff;
+}
+
+.adddoc-button.save:hover:not(:disabled) {
+  background: #2563eb;
+}
+
+.adddoc-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

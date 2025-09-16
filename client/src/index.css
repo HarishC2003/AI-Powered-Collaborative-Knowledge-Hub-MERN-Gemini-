@@ -1,0 +1,33 @@
+/* index.css - global styles */
+:root {
+  font-family: 'Segoe UI', 'Roboto', sans-serif;
+  color-scheme: light dark;
+  --text-color: #111827;
+  --background-color: #f9fafb;
+}
+
+body {
+  margin: 0;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+a {
+  color: #3b82f6;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #2563eb;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+}
+
+input, textarea {
+  font-family: inherit;
+}
